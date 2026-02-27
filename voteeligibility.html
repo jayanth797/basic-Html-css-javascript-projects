@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2, #ff6a88);
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container{
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    text-align: center;
+    width: 340px;
+    color: white;
+}
+
+h2{
+    margin-bottom: 25px;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+input[type="number"]{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="number"]:focus{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.btn{
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg,#00c9a7,#00bfa6);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg,#00bfa6,#008f7a);
+}
+
+#result{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vote Eligibility Checker</h2>
+        <input type="number" id="age" placeholder="enter ur age ">
+        <button onclick="checkEligibility()" class="btn">Check Eligibility</button>
+        <p id="result"></p>
+    </div>
+    <script>
+
+        function checkEligibility() {
+            let age = document.getElementById("age").value;
+            if (age >= 18) {
+                document.getElementById("result").textContent = "You are eligible to vote.";
+            } else {
+                document.getElementById("result").textContent = "You are not eligible to vote.";
+            }
+        }
+    </script>
+</body>
+</html>
